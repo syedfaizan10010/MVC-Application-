@@ -1,0 +1,65 @@
+﻿@using formProject.Models.ViewModel.BookingTicketView;
+@model BookingTicketViewModel
+<form asp-controller="BookingTicket" asp-action="AddNewTicketPost" method="post">
+    <div>
+        <label> User Name:</label><br />
+        <input asp-for="@Model.UserName"
+         data-val="true"
+         />
+         <br />
+         <span
+             asp-validation-for="UserName"
+             class="text-danger"></span>
+    </div>
+        <div class="input-field">
+            <label class="label-name">Mail Id:</label><br />
+             <input asp-for="@Model.UserMail"
+                    data-val="true"/>
+                    <br />
+            <span asp-validation-for="UserMail"
+                  class="text-danger">
+            </span>
+          </div>
+    <div>
+        <label> Age:</label><br />
+        <input asp-for="@Model.UserAge"
+        data-val="true"/>
+        <br />
+        <span asp-validation-for="UserAge"
+        class="text-danger">
+
+        </span>
+    </div>
+
+    <div>
+        <label> Booking From: </label>
+        <br />
+        <select asp-for="@Model.BookingFrom">
+            @foreach (var student in Model.SelectLocations)
+            {
+                <option value="@student.Value">@student.Text</option>
+            }
+
+        </select>
+    </div>
+    <div>
+        <label> Booking To:</label>
+        <br />
+        <select asp-for="@Model.BookingTo">
+            @foreach (var student in Model.SelectLocations)
+            {
+                <option value="@student.Value">@student.Text</option>
+            }
+
+        </select>
+    </div>
+    
+    <br />
+    <button id="Submit-btn" type="submit">
+        Submit
+    </button>
+
+
+
+
+</form>

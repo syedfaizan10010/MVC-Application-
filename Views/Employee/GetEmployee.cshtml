@@ -1,0 +1,33 @@
+﻿@using formProject.Models.ViewModel;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<EmployeeReportViewModel>
+<h1>Employees</h1>
+<table id="PlayerTable">
+    <tr>
+        <th> Employee Name</th>
+        <th>Employee City</th>
+        <th>Employee Status</th>
+
+    </tr>
+    @foreach (var employee in Model)
+    {
+        
+        
+            <tr>
+                <td>@employee.EmpName</td>
+                <td>@employee.EmpCity</td>
+                <td>@employee.StatusName</td>
+
+
+
+
+            </tr>
+        
+    }
+</table>
+
+

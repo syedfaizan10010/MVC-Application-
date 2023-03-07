@@ -1,0 +1,54 @@
+﻿@using formProject.Models.ViewModel;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model EmployeeViewModel
+<form class="form-group" asp-controller="Employee" asp-action="AddNewEmployeePost" method="post">
+    <div >
+        <label> Employee Name:</label><br />
+        <input asp-for="@Model.EmpName"
+         type="text"
+         data-val="true"
+         /><br />
+        <span 
+        asp-validation-for="EmpName"
+        class="text-danger"></span>
+    </div>
+    <div>
+        <div>
+            <div class="input-field">
+                <label class="label-name">Employee City</label><br />
+                <input asp-for="@Model.EmpCity"
+                data-val="true"
+                />
+                <br />
+                <span
+                 asp-validation-for="EmpCity" 
+                 class="text-danger"></span>
+
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <label> Employment Status:</label>
+        <br />
+        <select asp-for="@Model.EmpStatus" >
+            @foreach (var employee in Model.EmpStatusOptions)
+            {
+                <option value="@employee.Value">@employee.Text</option>
+            }
+
+        </select>
+    </div>
+    <br />
+    <button id="Submit-btn" type="submit" >
+        Submit
+    </button>
+
+    
+    
+
+ </form>

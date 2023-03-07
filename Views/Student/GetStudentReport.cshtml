@@ -1,0 +1,37 @@
+﻿@using formProject.Models.ViewModel;
+@using formProject.Models.ViewModel.StudentView;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<StudentReportViewModel>
+<h1>Student Report:</h1>
+<table >
+    <tr>
+        <th> Student Name</th>
+        <th>Student Roll No:</th>
+        <th>Student Choice </th>
+        <th>Student Interest </th>
+
+
+    </tr>
+    @foreach (var student in Model)
+    {
+
+
+        <tr>
+            <td>@student.StudentName</td>
+            <td>@student.StudentRollNo</td>
+            <td>@student.StudentChoiceName</td>
+            <td>@student.StudentInterestName</td>
+
+
+
+
+        </tr>
+
+    }
+</table>
+
+

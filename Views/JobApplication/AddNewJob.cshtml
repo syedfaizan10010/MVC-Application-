@@ -1,0 +1,112 @@
+﻿@using formProject.Models.ViewModel.JobApplicationView;
+
+@model JobApplicationViewModel
+<h1> Apply For JOB</h1>
+<form asp-controller="JobApplication" asp-action="AddNewJobPost" method="post">
+    
+    <div>
+        <label> User Name:</label><br />
+        <input asp-for="@Model.UserName"
+                data-val="true"/>
+                <br />
+        <span 
+            asp-validation-for="UserName"
+            class="text-danger"></span>
+    </div>
+      <div>
+        <label> User Mail:</label><br />
+        <input asp-for="@Model.UserMailId"
+                data-val="true"/>
+                <br />
+        <span  
+            asp-validation-for="UserMailId"
+            class="text-danger"></span>
+    </div>
+    <br />
+    <div>
+        <label>Phone No:</label>
+        <br />
+        <input asp-for="@Model.UserPhoneNo"
+                data-val="true"/>
+                <br />
+        <span class="text-danger" asp-validation-for="@Model.UserPhoneNo"></span>
+    </div>
+    <br />
+    <div>
+        <label> Interest:</label>
+        <br />
+        <select asp-for="@Model.UserInterestId">
+            @foreach (var student in Model.SelectUserInterest)
+            {
+                <option value="@student.Value">@student.Text</option>
+            }
+
+        </select>
+    </div>
+    <div>
+        <label>Hobby:</label>
+        <br />
+        <input asp-for="@Model.UserHobbies" />
+    </div>
+    <div>
+        <label>Project Description:</label>
+        <br />
+        <textarea asp-for="@Model.UserProjectDescription"></textarea>
+@*        <input asp-for="@Model.UserHobbies" />
+*@    </div>
+    <div>
+        <label>YOP:</label>
+        <br />
+        <input asp-for="@Model.UserGraduationYear" />
+    </div>
+    <div>
+        <label>College Name:</label>
+        <br />
+        <input asp-for="@Model.UserInstitueName" />
+    </div>
+
+  
+
+    <div>
+        <label> Job Name: </label>
+        <br />
+        <select asp-for="@Model.JobId">
+            @foreach (var student in Model.SelectJobName)
+            {
+                <option value="@student.Value">@student.Text</option>
+            }
+
+        </select>
+    </div>
+    <div>
+        <label> Job Location:</label>
+        <br />
+        <select asp-for="@Model.JobLocationId">
+            @foreach (var student in Model.SelectJobLocation)
+            {
+                <option value="@student.Value">@student.Text</option>
+            }
+
+        </select>
+    </div>
+    <div>
+        <label> Job Type:</label>
+        <br />
+        <select asp-for="@Model.JobTypeId">
+            @foreach (var student in Model.SelectJobType)
+            {
+                <option value="@student.Value">@student.Text</option>
+            }
+
+        </select>
+    </div>
+    <br />
+
+    <button id="Submit-btn" type="submit">
+        Submit
+    </button>
+
+
+
+
+</form>  

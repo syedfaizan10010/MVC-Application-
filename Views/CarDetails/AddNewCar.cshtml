@@ -1,0 +1,60 @@
+﻿@using formProject.Models.ViewModel.CarDetailsView;
+
+@model CarDetailsViewModel
+<form asp-controller="CarDetails" asp-action="AddNewCarPost" method="post">
+    <div>
+        <label> Car Name:</label><br />
+        <input asp-for="@Model.CarName" />
+    </div>
+    <div>
+        <div>
+            <div class="input-field">
+                <label class="label-name">Make:</label><br />
+                <input asp-for="@Model.CarMake" />
+
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <label> Engine Type : </label>
+        <br />
+        <select asp-for="@Model.CarEngineTypeId">
+            @foreach (var student in Model.SelectCarEngineType)
+            {
+                <option value="@student.Value">@student.Text</option>
+            }
+
+        </select>
+    </div>
+    <div>
+        <label> Car Type:</label>
+        <br />
+        <select asp-for="@Model.CarTypeId">
+            @foreach (var student in Model.SelectCarType)
+            {
+                <option value="@student.Value">@student.Text</option>
+            }
+
+        </select>
+    </div>
+    <div>
+        <label> Tyre brand:</label>
+        <br />
+        <select asp-for="@Model.CarTyreBrandId">
+            @foreach (var student in Model.SelectCarTyreBrand)
+            {
+                <option value="@student.Value">@student.Text</option>
+            }
+
+        </select>
+    </div>
+    <br />
+    <button id="Submit-btn" type="submit">
+        Submit
+    </button>
+
+
+
+
+</form>

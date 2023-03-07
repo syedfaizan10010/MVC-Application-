@@ -1,0 +1,47 @@
+﻿@using formProject.Models.ViewModel.JobApplicationView;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<JobDetailsReportViewModel>
+<h1>Job Report</h1>
+<table id="PlayerTable"style="border:1px solid black"> 
+    <tr style="border:1px solid black">
+        <th style="border:1px solid black"> User Name</th>
+        <th style="border:1px solid black">Mail ID</th>
+        <th style="border:1px solid black">Phone no</th>
+        <th style="border:1px solid black">Interest</th>
+        <th style="border:1px solid black">Hobbies</th>
+        <th style="border:1px solid black">Project Details</th>
+        <th style="border:1px solid black">Y O P </th>
+        <th style="border:1px solid black">College Name</th>
+        <th style="border:1px solid black">Job Name </th>
+        <th style="border:1px solid black"> Job Type</th>
+        <th style="border:1px solid black">Job Location</th>
+
+
+    </tr>
+    @foreach (var Job in Model)
+    {
+
+
+        <tr style="border:1px solid black">
+         <td style="border:1px solid black">@Job.UserName</td>
+         <td style="border:1px solid black">@Job.UserMailId</td>
+         <td style="border:1px solid black">@Job.UserPhoneNo</td>
+         <td style="border:1px solid black">@Job.UserInterestName</td>
+         <td style="border:1px solid black">@Job.UserHobbies</td>
+         <td style="border:1px solid black">@Job.UserProjectDescription</td>
+         <td style="border:1px solid black">@Job.UserGraduationYear</td>
+         <td style="border:1px solid black">@Job.UserInstitueName</td>
+         <td style="border:1px solid black">@Job.JobName</td>
+         <td style="border:1px solid black">@Job.JobTypeName</td>
+         <td style="border:1px solid black">@Job.JobLocationName</td>
+
+
+
+        </tr>
+
+    }
+</table>

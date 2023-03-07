@@ -1,0 +1,49 @@
+﻿@using formProject.Models.ViewModel.StudentView;
+
+@model StudentViewModel
+<form asp-controller="Student" asp-action="AddNewStudentPost" method="post">
+    <div>
+        <label> Student Name:</label><br />
+        <input asp-for="@Model.StudentName" />
+    </div>
+    <div>
+        <div>
+            <div class="input-field">
+                <label class="label-name">Student Roll No </label><br />
+                <input asp-for="@Model.StudentRollNo" />
+
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <label> Student Choice</label>
+        <br />
+        <select asp-for="@Model.StudentChoice">
+            @foreach (var student in Model.SelectStudentChoice)
+            {
+                <option value="@student.Value">@student.Text</option>
+            }
+
+        </select>
+    </div>
+    <div>
+        <label> Student Interest:</label>
+        <br />
+        <select asp-for="@Model.StudentInterest">
+            @foreach (var student in Model.SelectStudentInterest)
+            {
+                <option value="@student.Value">@student.Text</option>
+            }
+
+        </select>
+    </div>
+    <br />
+    <button id="Submit-btn" type="submit">
+        Submit
+    </button>
+
+
+
+
+</form>
