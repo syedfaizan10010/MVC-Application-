@@ -12,6 +12,7 @@ namespace formProject.Models.ViewModel
         [Required (ErrorMessage =("Employee City is required"))]
         public string EmpCity { get; set; }
         public int EmpStatus { get; set; }
+        public List<string> EmployeeDetails { get; set; }
 
 
         public List<SelectListItem> EmpStatusOptions { get; set; }

@@ -4,13 +4,16 @@
 *@
 @{
 }
+<style src="~/css/site.css"> </style>
 @model List<EmployeeReportViewModel>
 <h1>Employees</h1>
-<table id="PlayerTable">
-    <tr>
-        <th> Employee Name</th>
+<table id="EmployeeTable">
+    <tr class="table-row">
+        <th class="table-head"> Employee Name</th>
         <th>Employee City</th>
         <th>Employee Status</th>
+        <th>Actions:</th>
+
 
     </tr>
     @foreach (var employee in Model)
@@ -21,13 +24,22 @@
                 <td>@employee.EmpName</td>
                 <td>@employee.EmpCity</td>
                 <td>@employee.StatusName</td>
+            <td>
+                <button class="edit-button" data-id="@employee.EmpId">Edit</button>
+            
+            
+                <button class="delete-button" data-id="@employee.EmpId">Delete</button>
 
-
-
-
+            </td>
             </tr>
         
     }
 </table>
+
+
+@section Scripts{
+  <script type="text/javascript" src="~/js/site.js"></script>
+       
+}
 
 

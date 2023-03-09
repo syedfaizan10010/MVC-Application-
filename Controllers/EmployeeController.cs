@@ -18,9 +18,11 @@ namespace formProject.Controllers
 
         public   IActionResult AddNewemployee()
         {
-            var emp = _IEmployeeFactory.ConvertToViewModel();
+            var emp =  _IEmployeeFactory.ConvertToViewModel();
+
             return View(emp);
         }
+        [HttpPost]
         public async Task<IActionResult> AddNewEmployeePost(EmployeeViewModel empModel)
         {
             
@@ -35,5 +37,25 @@ namespace formProject.Controllers
             var employee =await  _IEmployeeFactory.ConvertToGetViewModel();
             return View(employee);
         }
+
+        public async Task<IActionResult> UpdateEmployee(int id)
+        {
+
+            var employee = _IEmployeeFactory.ConvertIndividualEmployee(id);
+            return View(employee);
+        }
+        [HttpPost]
+        public async Task<IActionResult>UpdateEmployeePost(EmployeeViewModel empModel)
+        {
+            await _IEmployeeFactory.SaveUpdateemployeeAsync(empModel);
+            return RedirectToAction("GetEmployee");
+        }
+        public IActionResult DeleteEmployee(int id)
+        {
+            _IEmployeeFactory.DeleteEmployeeAsync(id);
+            return RedirectToAction("GetEmployee");
+        }
+
+
     }
 }

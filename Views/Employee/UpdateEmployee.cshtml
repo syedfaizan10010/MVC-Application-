@@ -1,0 +1,57 @@
+﻿@using formProject.Models.ViewModel;
+@model EmployeeReportViewModel
+<h1>Update Employee</h1>
+<form class="form-group" asp-controller="Employee" asp-action="UpdateEmployeePost" method="post">
+    <div>
+        <input type="hidden" asp-for="@Model.EmpId" />
+    </div>
+    <div>
+        <label> Employee Name:</label><br />
+        <input asp-for="@Model.EmpName"
+               type="text"
+               data-val="true" /><br />
+        <span asp-validation-for="EmpName"
+              class="text-danger"></span>
+    </div>
+    <div>
+        <div>
+            <div class="input-field">
+                <label class="label-name">Employee City</label><br />
+                <input asp-for="@Model.EmpCity"
+                       data-val="true" />
+                <br />
+                <span asp-validation-for="EmpCity"
+                      class="text-danger"></span>
+
+            </div>
+        </div>
+    </div>
+   @* <div>
+        <label> Employee Status:</label><br />
+        <input asp-for="@Model.StatusName"
+               type="text"
+               data-val="true" /><br />
+        <span asp-validation-for="StatusName"
+              class="text-danger"></span>
+    </div>*@
+
+    <div>
+        <label> Employment Status:</label>
+        <br />
+        <select asp-for="@Model.EmpStatus">
+            @foreach (var employee in Model.SelectEmpStatus)
+            {
+                <option value="@employee.Value">@employee.Text</option>
+            }
+
+        </select>
+    </div>
+    <br />
+    <button id="Submit-btn" type="submit">
+        Submit
+    </button>
+
+
+
+
+</form>

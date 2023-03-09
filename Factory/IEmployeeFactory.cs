@@ -7,6 +7,14 @@ namespace formProject.Factory
         EmployeeViewModel ConvertToViewModel();
         Task SaveModelAsync(EmployeeViewModel model);
 
+
+
         Task<List<EmployeeReportViewModel>> ConvertToGetViewModel();
+
+        EmployeeReportViewModel ConvertIndividualEmployee(int id);
+
+        Task SaveUpdateemployeeAsync(EmployeeViewModel model);
+
+        void DeleteEmployeeAsync(int id);
     }
 }
