@@ -27,9 +27,7 @@ namespace formProject.Controllers
         {
             
                 await _IEmployeeFactory.SaveModelAsync(empModel);
-
-            
-           return  RedirectToAction("AddNewEmployee");
+                return  RedirectToAction("GetEmployee");
         }
 
         public async Task<IActionResult> GetEmployee()
@@ -41,7 +39,7 @@ namespace formProject.Controllers
         public async Task<IActionResult> UpdateEmployee(int id)
         {
 
-            var employee = _IEmployeeFactory.ConvertIndividualEmployee(id);
+            var employee =  _IEmployeeFactory.ConvertIndividualEmployee(id);
             return View(employee);
         }
         [HttpPost]

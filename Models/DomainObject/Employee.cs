@@ -7,6 +7,7 @@
         public string EmpCity { get; set; }
         public int EmpStatus { get; set; }
         public string StatusName { get; set; }
+        public bool IsDeleted { get; set; }
 
         //public List<EmpStatus> EmpStatusName { get; set; }
 

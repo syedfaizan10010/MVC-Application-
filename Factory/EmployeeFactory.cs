@@ -43,7 +43,7 @@ namespace formProject.Factory
         public async Task<List<EmployeeReportViewModel>> ConvertToGetViewModel()
         {
             var employee =_IEmployee.GetAllEmployee();
-            var viewModel = new List<EmployeeReportViewModel>();
+           // var viewModel = new List<EmployeeReportViewModel>();
             var employeeModel = employee.Select(e => new EmployeeReportViewModel
             {
                 EmpId=e.EmpId,
@@ -87,6 +87,7 @@ namespace formProject.Factory
                 EmpName = model.EmpName,
                 EmpCity = model.EmpCity,
                 EmpStatus = model.EmpStatus,
+                IsDeleted=model.IsDeleted
             };
             await _IEmployee.AddNewEmployee(employee);
         }

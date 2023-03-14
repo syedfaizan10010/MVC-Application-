@@ -21,11 +21,12 @@ namespace formProject.Models.Repository
                 param.Add("@EmpName", employee.EmpName);
                 param.Add("@EmpCity", employee.EmpCity);
                 param.Add("@EmpStatus", employee.EmpStatus);
-                var result = con.Query(query, param: param, commandType: System.Data.CommandType.StoredProcedure);
+                param.Add("@IsDeleted", employee.IsDeleted);
+                var result =  con.Query(query, param: param, commandType: System.Data.CommandType.StoredProcedure);
 
 
             }
-            return 1 ;
+            return  1 ;
         }
 
         public async Task<int> DeleteEmployee(int id)

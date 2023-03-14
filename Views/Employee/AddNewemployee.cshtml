@@ -5,12 +5,14 @@
 @{
 }
 @model EmployeeViewModel
-<form class="form-group" asp-controller="Employee" asp-action="AddNewEmployeePost" method="post">
+<h1>Add New Employee</h1>
+<form id="form">
     <div >
         <label> Employee Name:</label><br />
         <input asp-for="@Model.EmpName"
          type="text"
          data-val="true"
+         id="EmpName"
          /><br />
         <span 
         asp-validation-for="EmpName"
@@ -21,6 +23,7 @@
             <div class="input-field">
                 <label class="label-name">Employee City</label><br />
                 <input asp-for="@Model.EmpCity"
+                id="EmpCity"
                 data-val="true"
                 />
                 <br />
@@ -35,7 +38,8 @@
     <div>
         <label> Employment Status:</label>
         <br />
-        <select asp-for="@Model.EmpStatus" >
+        <select asp-for="@Model.EmpStatus" 
+                id="EmpStatus">
             @foreach (var employee in Model.EmpStatusOptions)
             {
                 <option value="@employee.Value">@employee.Text</option>
@@ -44,11 +48,15 @@
         </select>
     </div>
     <br />
-    <button id="Submit-btn" type="submit" >
-        Submit
-    </button>
+    <button id="btnSave">Save </button>
+@*    <input id="btnSave"  type="button" value="Save"/>
+*@
 
     
     
 
  </form>
+@section Scripts{
+    <script type="text/javascript" src="~/js/site.js"></script>
+
+}

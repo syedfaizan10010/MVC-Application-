@@ -1,19 +1,80 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿//Create:
+//Add Employee :
+//Gettig the details of dropdown from db before psoting the Emp details in Db
+$('#AddNewEmp').on('click', function () {
+    window.location.href = 'Employee/AddNewEmployee';
+});
 
-// Write your JavaScript code.
+//Posting Data by calling Ajax(Adding New Emoployee)
 
-    $(document).ready(function () {
-        $('.edit-button').on('click', function () {
-            var rowId = ($(this).data('id'));
-            console.log(rowId)
-            window.location.href = '/Employee/UpdateEmployee?id=' + rowId;
+$('#btnSave').on('click', function () {
+    var data = {
+        EmpName: $("#EmpName").val(), //Reading text box values using Jquery 
+        EmpCity: $("#EmpCity").val(),
+        EmpStatus: $("#EmpStatus").val()
 
-        });
-    })
+    };
+    $.ajax({
+        type: 'POST',
+        url: "/Employee/AddNewEmployeePost",
+        data: data,
+        success: function () {
+            window.location.href = '/Employee/GetEmployee';
+            console.log("Successss")
+        },
+        error: function (e) {
+            alert("Faileddd")
+        }
+    });
+});
 
 
-    $(document).ready(function () {
+
+//Read:
+//Displaying all the Employee Details:
+$('#EmployeeReport').on('click', function () {
+    window.location.href = 'Employee/getemployee'
+});
+
+
+
+//Update:
+//Calling Updating Employee Controller 
+//        $('.edit-button').on('click', function () {
+//            var rowId = ($(this).data('id'));
+//            console.log(rowId)
+//            window.location.href = '/Employee/UpdateEmployee?id=' + rowId;
+
+//        });
+
+//$('#update-button').on('click', function () {
+//    var data = {
+//        EmpName: $("#EmpName").val(), //Reading text box values using Jquery 
+//        EmpCity: $("#EmpCity").val(),
+//        EmpStatus: $("#EmpStatus").val()
+
+//    };
+//    $.ajax({
+//        type: 'POST',
+//        url: "/Employee/UpdateEmployeePost",
+//        data: data,
+//        success: function () {
+//            alert('Successsssss')
+//            window.location.href = '/Employee/GetEmployee';
+//            console.log("Successss")
+//        },
+//        error: function (e) {
+//            alert("Faileddd")
+//        }
+//    });
+//});
+
+
+
+
+//Delete:
+//Deleting Employee by calling ajax and passing the corresponding id to delete details
+
         $('.delete-button').on('click', function () {
             var rowId = $(this).data('id');
 
@@ -29,4 +90,33 @@
                 }
             });
         });
-        });
+
+
+
+
+
+
+
+
+//$('#update-button').on('click', function () {
+//    var data = {
+//        EmpName: $('#EmpName').val(),
+//        EmpCity: $('#EmpCity').val(),
+//        EmpStatus: $('#EmpStatus').val()
+//    };
+
+//    $.ajax({
+//        type: 'POST',
+//        url: '/Employee/UpdateEmployeePost',
+//        data: data,
+//        success: function () {
+//            console.log('Successfully added')
+//        },
+//        error: function (e) {
+//            alert('faileddd')
+//        }
+
+//    });
+//});
+
+
